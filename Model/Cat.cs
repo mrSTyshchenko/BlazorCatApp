@@ -12,16 +12,7 @@ namespace blazorTest.Model
         public string Name { get; set; }
         [Required]
         public string LastName { get; set; }
-        [Required]
+        [Required]        
         public int Age { get; set; }
-
-        //public Cat() { }
-
-        //public Cat(string Name, string LastName, int Age)
-        //{
-        //    this.Name = Name;
-        //    this.LastName = LastName;
-        //    this.Age = Age;
-        //}
     }
 }
