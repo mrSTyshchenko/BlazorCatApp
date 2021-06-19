@@ -1,0 +1,38 @@
+@page "/cat"
+@using Model;
+@using Microsoft.Extensions.Logging;
+@inject ILogger<Cat> logger;
+
+<div>Hello from cat</div>
+
+<EditForm Model="@cat" OnValidSubmit="@HandleValidSubmit">
+
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText @bind-Value="cat.Name"></InputText>
+    <InputText @bind-Value="cat.LastName"></InputText>
+    <InputNumber @bind-Value="cat.Age"></InputNumber>
+
+    @*<label for="catName">Cat name</label>
+        <input type="text" id="catName" name="catName" @buind-value="" />
+
+        <label for="catLastName">Cat last name</label>
+        <input type="text" id="catLastName" name="catLastName" />
+
+        <label for="catAge">Cat age</label>
+        <input type="text" id="catAge" name="catAge" />*@
+
+    <button type="submit" class="btn btn-primary">Add cat</button>
+
+</EditForm>
+
+
+@code{
+    private Cat cat = new Cat();
+
+    public void HandleValidSubmit()
+    {
+        logger.LogInformation("hello from submit");
+    }
+}
